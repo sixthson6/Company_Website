@@ -272,6 +272,23 @@ const slider = function () {
   };
   init();
 
+  /////////Auto slide fucntionality
+  let interval = setInterval(nextSlide, 3000);
+  const stopSlide = function () {
+    clearInterval(interval);
+  };
+  const startSlide = function () {
+    interval = setInterval(nextSlide, 3000);
+  };
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+      stopSlide();
+    } else {
+      startSlide();
+    }
+  });
+  //Auto slide functionality ends here
+
   // Event handlers
   btnRight.addEventListener("click", nextSlide);
   btnLeft.addEventListener("click", prevSlide);
@@ -291,6 +308,8 @@ const slider = function () {
       activateDot(curSlide);
     }
   });
+  slides.forEach((slide) => slide.addEventListener("mouseenter", stopSlide));
+  slides.forEach((slide) => slide.addEventListener("mouseleave", startSlide));
 };
 slider();
 
