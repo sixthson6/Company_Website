@@ -296,14 +296,18 @@ slider();
 
 images.forEach((img) =>
   img.addEventListener("mouseenter", function (e) {
-    e.target.style.transform = "scale(1.2)";
-    e.target.style.transition =
-      "transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95)";
+    if (e.target.classList.contains("home__img")) {
+      e.target.style.transform = "scale(1.2)";
+      e.target.style.transition =
+        "transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95)";
+    }
   })
 );
 images.forEach((img) =>
   img.addEventListener("mouseleave", function (e) {
-    e.target.style.transform = "scale(1)";
+    if (e.target.classList.contains("home__img")) {
+      e.target.style.transform = "scale(1)";
+    }
   })
 );
 
