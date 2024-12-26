@@ -322,6 +322,7 @@ images.forEach((img) =>
     }
   })
 );
+
 images.forEach((img) =>
   img.addEventListener("mouseleave", function (e) {
     if (e.target.classList.contains("home__img")) {
@@ -329,6 +330,20 @@ images.forEach((img) =>
     }
   })
 );
+
+// const newsText = document.querySelector(".news__text");
+// // newsText.style.backgroundColor = "";
+
+// newsText.addEventListener("mouseenter", function (e) {
+//   newsText.style.backgroundColor = "white";
+// });
+// newsText.addEventListener("mouseleave", function (e) {
+//   newsText.style.backgroundColor = "rgba(0,0,0,0.5)";
+// });
+
+//
+//////////////////////////////////////////////////
+//News item
 
 ///////////////////////////////////////
 ///////////////////////////////////////
