@@ -25,6 +25,16 @@ html {
   box-sizing: border-box;
 }
 
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 50%;
+  }
+  div {
+    font-size: calc((0.05em + 2vmin) + (0.05em + 2vmax));
+    line-height: 115%;
+  }
+}
+
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
@@ -115,6 +125,12 @@ img {
 }
 
 /* NAVIGATION */
+
+/*hide three dots on the right side of the screen*/
+.nav__toggle-btn {
+  display: none;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -169,6 +185,62 @@ img {
   color: inherit;
   background-color: var(--color-primary-darker);
   color: #333;
+}
+
+@media (max-width: 56.25em) {
+  .nav {
+    margin-bottom: 4rem;
+    margin-top: 2rem;
+  }
+
+  .nav__logo {
+    height: 5.5rem;
+    transform: translateX(-6rem);
+  }
+
+  .nav__toggle-btn {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transform: translateX(-5.7rem);
+  }
+
+  .nav__links {
+    display: none;
+    position: fixed;
+    top: 9rem;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 9rem);
+    background-color: rgba(255, 255, 255, 0.95);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    transition: 400ms ease-in-out;
+    padding: 3rem;
+  }
+
+  .nav__item {
+    margin: 2rem 0;
+  }
+
+  .nav__link:link,
+  .nav__link:visited {
+    font-size: 2.5rem;
+  }
+
+  .nav__toggle-btn--close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .nav__links--open {
+    display: flex;
+  }
 }
 
 /* HEADER */
@@ -268,6 +340,32 @@ h4 {
   background-image: var(--gradient-secondary);
 }
 
+@media (max-width: 56.25em) {
+  .header__title h1 {
+    font-size: 2.4rem; /* Reduce font size for better readability */
+  }
+
+  .header__img,
+  .header__img2,
+  .header__img3 {
+    max-width: 80%; /* Scale down images */
+    margin: 10px auto; /* Add spacing between images */
+  }
+
+  .header__img {
+    transform: translateY(9rem); /* Adjust position of the first image */
+    transform: scale(1.8);
+  }
+  .header__img3 {
+    transform: translateY(0rem); /* Adjust position of the first image */
+    transform: scale(1.5);
+  }
+  .header__img2 {
+    transform: translate(4rem, 2rem); /* Adjust position of the first image */
+    /* transform: scale(); */
+  }
+}
+
 /* FEATURES */
 .home {
   display: grid;
@@ -308,6 +406,46 @@ h4 {
 .home__header {
   font-size: 2rem;
   margin-bottom: 1rem;
+}
+
+.order--1 {
+  order: 1;
+}
+.order--2 {
+  order: 2;
+}
+
+@media (max-width: 56.25em) {
+  .home {
+    /* display: flex; */
+    grid-template-columns: 1fr;
+    margin: 0 3rem;
+  }
+  .section__header {
+    font-size: 2.3rem;
+  }
+  .home__feature h3 {
+    font-size: 2.4rem; /* Reduce font size for better readability */
+  }
+  .home__feature h4 {
+    font-size: 1.8rem; /* Reduce font size for better readability */
+  }
+
+  .home__img {
+    max-width: 80%; /* Scale down images */
+    margin: 10px auto;
+  }
+
+  .home__icon {
+    display: none; /* Hide icons */
+  }
+
+  .order--1 {
+    order: 2; /* Change order of the first feature */
+  }
+  .order--2 {
+    order: 1; /* Change order of the second feature */
+  }
 }
 
 /* OPERATIONS */
@@ -411,6 +549,25 @@ h4 {
 }
 .operations__icon--3 svg {
   fill: var(--color-tertiary);
+}
+
+@media (max-width: 56.25em) {
+  .operations__icon {
+    display: none; /* Hide icons */
+  }
+  .operations__header {
+    display: none; /* Hide headers */
+  }
+  /* get elements to stack on top of each other */
+  .operations__content {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 3rem 6.5rem 3rem;
+  }
+  /* .operations__content {
+    grid-template-columns: 0fr;
+    margin: 0 3rem;
+    display: block;
+  } */
 }
 
 /* NEWS */
@@ -522,6 +679,17 @@ h4 {
   align-self: center;
 }
 
+@media (max-width: 56.25em) {
+  .news-item__container {
+    padding: 3rem 3rem;
+    transform: scale(1.2);
+  }
+
+  .news__text h4 {
+    font-size: 1.2rem;
+  }
+}
+
 /* TEAM */
 .team {
   display: grid;
@@ -569,6 +737,14 @@ h4 {
 
 .team__container > .team-member__info {
   transform: translateY(100%);
+}
+
+@media (max-width: 56.25em) {
+  .team__container {
+    grid-template-columns: 1fr;
+    /* margin: 0 3rem; */
+    transform: scale(0.8);
+  }
 }
 
 /* SLIDER */

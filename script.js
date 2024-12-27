@@ -146,6 +146,13 @@ const stickyNav = function (entries) {
 
   if (!entry.isIntersecting) nav.classList.add("sticky");
   else nav.classList.remove("sticky");
+
+  //Check if screen is a mobile device
+  //If it is, remove sticky class
+  const mediaQuery = window.matchMedia("(max-width: 56.25em)");
+  if (mediaQuery.matches) {
+    nav.classList.remove("sticky");
+  }
 };
 
 const headerObserver = new IntersectionObserver(stickyNav, {
@@ -278,7 +285,7 @@ const slider = function () {
     clearInterval(interval);
   };
   const startSlide = function () {
-    interval = setInterval(nextSlide, 3000);
+    interval = setInterval(nextSlide, 7000);
   };
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
@@ -330,6 +337,26 @@ images.forEach((img) =>
     }
   })
 );
+
+///////////////////////////////////////////////////////
+//Handling media query changes
+// when nav is tapped on mobile, it should toggle close and open
+
+const navToggleBtn = document.querySelector(".nav__toggle-btn");
+const navLinks = document.querySelector(".nav__links");
+
+navToggleBtn.addEventListener("click", function (e) {
+  console.log("clicked");
+  if (navLinks.style.display === "none") {
+    navLinks.style.display = "flex";
+    // if navLinks is also clicked, it should close
+    navLinks.addEventListener("click", function (e) {
+      navLinks.style.display = "none";
+    });
+  } else {
+    navLinks.style.display = "none";
+  }
+});
 
 // const newsText = document.querySelector(".news__text");
 // // newsText.style.backgroundColor = "";
